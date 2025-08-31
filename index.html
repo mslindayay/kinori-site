@@ -2,153 +2,281 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kinori</title>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Meta / SEO -->
+  <meta name="description" content="Clarity, connection, and confidence in caregiving. Kinori helps families simplify health information and stay connected across generations and languages." />
+  <link rel="canonical" href="https://www.kinori.ai/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kinori" />
+  <meta property="og:description" content="Clarity, connection, and confidence in caregiving." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.kinori.ai/" />
+  <meta property="og:image" content="https://www.kinori.ai/og-image.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kinori" />
+  <meta name="twitter:description" content="Clarity, connection, and confidence in caregiving." />
+  <meta name="twitter:image" content="https://www.kinori.ai/og-image.jpg" />
+
+  <!-- Favicon (replace with your actual paths when ready) -->
+  <link rel="icon" href="/favicon.ico">
+
   <style>
+    :root {
+      --teal: #1C5752;
+      --light-teal: #E6F7F7;
+      --accent: #EBAF90;
+      --text: #333333;
+      --bg: #FDFBF9;
+      --muted: #EEF5F3;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       margin: 0;
-      background-color: #FDFBF9;
-      color: #333;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
     }
+    .container { max-width: 1024px; margin: 0 auto; padding: 0 1.25rem; }
     header {
-      background-color: #EEF5F3;
-      padding: 2rem;
-      text-align: center;
+      background: var(--muted);
+      padding: 1.25rem 0 2rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
     }
-    nav {
+    nav[aria-label="Primary"] {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1000px;
-      margin: 0 auto 2rem;
+      gap: 1rem;
+      padding: 0.25rem 0 1rem;
     }
     .logo {
-      font-weight: 600;
-      font-size: 1.5rem;
-      color: #1C5752;
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--teal);
+      letter-spacing: 0.3px;
     }
     .nav-links {
-      list-style: none;
       display: flex;
-      gap: 1.5rem;
+      list-style: none;
+      padding: 0; margin: 0;
+      gap: 1rem;
     }
-    .nav-links li a {
+    .nav-links a {
       text-decoration: none;
-      color: #1C5752;
+      color: var(--teal);
       font-weight: 500;
     }
+    .nav-links a:hover { text-decoration: underline; }
+
     .hero {
-      max-width: 800px;
-      margin: 0 auto;
+      text-align: center;
+      padding-top: 0.5rem;
     }
     .hero h1 {
-      font-size: 1.8rem;
-      color: #1C5752;
+      font-size: clamp(1.6rem, 2.5vw + 1rem, 2.25rem);
+      color: var(--teal);
+      margin: 0.75rem 0 0.5rem;
+      line-height: 1.25;
     }
     .hero p {
-      font-size: 1rem;
-      margin-top: 1rem;
-      color: #444;
-    }
-    main {
-      padding: 2rem;
       max-width: 800px;
-      margin: 0 auto;
+      margin: 0.5rem auto 1.25rem;
+      color: #444;
+      font-size: 1rem;
     }
-    section {
-      margin-bottom: 3rem;
+    .cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
     }
+    .cta:hover { filter: brightness(0.95); }
+
+    main { padding: 2rem 0; }
+    section { margin: 2.5rem 0; }
     h2 {
-      color: #1C5752;
+      color: var(--teal);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-intro { color: #444; margin-top: 0; }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    @media (max-width: 800px) {
+      .grid-3 { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .card h3 { margin: 0 0 0.25rem; color: var(--teal); }
+    .card p { margin: 0.25rem 0 0.75rem; }
+
+    form {
+      margin-top: 0.5rem;
     }
     input, textarea, button {
       width: 100%;
-      padding: 0.8rem;
-      margin: 0.5rem 0 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-family: 'Poppins', sans-serif;
+      padding: 0.85rem;
+      margin: 0.4rem 0 0.8rem;
+      border: 1px solid #d8d8d8;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.15s ease;
+      background: #fff;
     }
+    input:focus, textarea:focus { outline: none; border-color: var(--teal); }
+    textarea { min-height: 140px; resize: vertical; }
     button {
-      background-color: #EBAF90;
+      background: var(--accent);
       color: #fff;
-      font-weight: 600;
       border: none;
       cursor: pointer;
+      font-weight: 700;
+      letter-spacing: 0.2px;
     }
-    button:hover {
-      background-color: #e59a76;
+    button:hover { filter: brightness(0.95); }
+
+    .band {
+      background: var(--light-teal);
+      padding: 1.25rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.04);
     }
+
     footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #EEF5F3;
+      background: var(--muted);
       color: #555;
+      text-align: center;
+      padding: 1rem 0 1.2rem;
+      border-top: 1px solid rgba(0,0,0,0.05);
+      font-size: 0.95rem;
     }
+    footer a { color: var(--teal); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
   <header>
-    <nav>
-      <div class="logo">Kinori</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#get-involved">Get Involved</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <section class="hero">
-      <h1>Human-centered intelligence for aging and caregiving across generations, geographies, and languages.</h1>
-      <p>Kinori is a human-centered AI platform designed to bring clarity, connection, and confidence to aging and caregiving. We help families and older adults navigate care with empathy, cultural nuance, and clear communication.</p>
-    </section>
+    <div class="container">
+      <nav aria-label="Primary">
+        <div class="logo">Kinori</div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#involved">Get Involved</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <section class="hero">
+        <h1>Clarity. Connection. Confidence in care.</h1>
+        <p>Kinori brings human-centered intelligence to aging and caregiving—helping families turn complexity into clarity across generations, geographies, and languages.</p>
+        <a class="cta" href="#involved">Get Updates</a>
+      </section>
+    </div>
   </header>
 
-  <main>
+  <main class="container">
     <section id="about">
       <h2>Why Kinori</h2>
-      <p>1 in 4 U.S. adults is a caregiver—and by 2030, older adults will outnumber children for the first time in U.S. history. Kinori exists to make aging and caregiving easier, clearer, and more connected through human-centered AI. Whether you're an adult child supporting a loved one or an older adult trying to stay informed and independent, Kinori is built for you.</p>
+      <p class="section-intro">Caregiving is complex. Kinori exists to make it easier, clearer, and more connected. Whether you’re an adult child supporting a parent or an older adult staying independent, Kinori is being built for real life—respectful language, cultural nuance, and guidance you can trust.</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Make Information Clear</h3>
+          <p>Capture or upload documents. Kinori simplifies medical and care information into plain, respectful language.</p>
+        </div>
+        <div class="card">
+          <h3>Keep Families in Sync</h3>
+          <p>Share updates across time zones and languages so everyone stays aligned without endless group chats.</p>
+        </div>
+        <div class="card">
+          <h3>Turn Talk into Action</h3>
+          <p>Conversation notes can become reminders and checklists—so the important things don’t fall through the cracks.</p>
+        </div>
+      </div>
     </section>
 
-    <section id="get-involved">
+    <section id="involved">
       <h2>Help Shape Kinori</h2>
-      <p>We're building Kinori with the people who will use it—caregivers, aging adults, and families navigating complex systems of support. If you're curious, passionate, or have personal experience with aging or caregiving, we'd love for you to be part of this journey.</p>
+      <p class="section-intro">We’re building with caregivers, aging adults, and families. Join the journey and help us prioritize what matters most.</p>
 
-      <h3>✨ Get Updates</h3>
-      <p>Sign up to receive occasional updates as we build. No spam, just meaningful progress.</p>
-      <form>
-        <input type="email" placeholder="Your email address" required />
-        <button type="submit">Subscribe</button>
-      </form>
+      <div class="band">
+        <h3>✨ Get Updates</h3>
+        <!-- Replace YOUR_FORMSPREE_ID with your actual Formspree form ID -->
+        <form action="https://formspree.io/f/movndoyr" method="POST">
+          <input type="email" name="email" placeholder="Your email address" required />
+          <input type="hidden" name="_subject" value="Kinori Site – New Subscriber" />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
 
-      <h3>💬 Share Your Story</h3>
-      <p>Your experiences help shape Kinori. Tell us about your caregiving journey or challenges you've faced in supporting loved ones or navigating care as an older adult.</p>
-      <form>
-        <textarea rows="5" placeholder="Your story or feedback"></textarea>
-        <button type="submit">Send</button>
-      </form>
-
-      <h3>🌱 Join Early Access</h3>
-      <p>Interested in testing Kinori as we develop? We’ll invite a small group of early users to try features and share feedback.</p>
-      <form>
-        <input type="text" placeholder="Name" required />
-        <input type="email" placeholder="Email address" required />
-        <button type="submit">Request Early Access</button>
-      </form>
+      <div class="grid-3" style="margin-top:1rem;">
+        <div class="card">
+          <h3>💬 Share Your Story</h3>
+          <p>Your experiences help shape Kinori. Tell us about your caregiving journey or challenges you’ve faced.</p>
+          <form action="https://formspree.io/f/xgvlkjrq" method="POST">
+            <textarea name="story" placeholder="Your story or feedback"></textarea>
+            <input type="hidden" name="_subject" value="Kinori Site – Story/Feedback" />
+            <button type="submit">Send</button>
+          </form>
+        </div>
+        <div class="card">
+          <h3>🌱 Join Early Access</h3>
+          <p>Interested in testing Kinori as we develop? We’ll invite a small group of early users to try features and share feedback.</p>
+          <form action="https://formspree.io/f/xpwjdgke" method="POST">
+            <input type="text" name="name" placeholder="Name" required />
+            <input type="email" name="email" placeholder="Email address" required />
+            <input type="hidden" name="_subject" value="Kinori Site – Early Access Request" />
+            <button type="submit">Request Early Access</button>
+          </form>
+        </div>
+        <div class="card">
+          <h3>Connect with Us</h3>
+          <p>Want to partner, collaborate, or just say hello?</p>
+          <p><a href="mailto:hello@kinori.ai">hello@kinori.ai</a></p>
+        </div>
+      </div>
     </section>
 
     <section id="contact">
       <h2>Reach Out</h2>
-      <p>If you're working in aging services, building adjacent tools, or simply want to connect—we’d love to hear from you.</p>
-      <a href="mailto:hello@kinori.ai">hello@kinori.ai</a>
+      <p>If you’re working in aging services, building adjacent tools, or simply want to connect—we’d love to hear from you.</p>
+      <p><a href="mailto:hello@kinori.ai">hello@kinori.ai</a></p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Kinori. All rights reserved.</p>
+    <div class="container">
+      <p>&copy; 2025 Kinori. All rights reserved.</p>
+    </div>
   </footer>
+
+  <!-- Optional: privacy-friendly analytics (Plausible). Replace domain and uncomment when ready. -->
+  <!--
+  <script defer data-domain="kinori.ai" src="https://plausible.io/js/script.js"></script>
+  -->
 </body>
 </html>
