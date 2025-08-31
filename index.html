@@ -117,12 +117,29 @@
     .section-intro { color: #444; margin-top: 0; }
 
     .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    @media (max-width: 800px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
     }
     @media (max-width: 800px) {
-      .grid-3 { grid-template-columns: 1fr; }
+      .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    } grid-template-columns: 1fr; }
     }
 
     .card {
@@ -233,7 +250,7 @@
         </form>
       </div>
 
-      <div class="grid-3" style="margin-top:1rem;">
+      <div class="grid-2" style="margin-top:1rem;">
         <div class="card">
           <h3>💬 Share Your Story</h3>
           <p>Your experiences help shape Kinori. Tell us about your caregiving journey or challenges you’ve faced.</p>
@@ -253,12 +270,7 @@
             <button type="submit">Request Early Access</button>
           </form>
         </div>
-        <div class="card">
-          <h3>Connect with Us</h3>
-          <p>Want to partner, collaborate, or just say hello?</p>
-          <p><a href="mailto:hello@kinori.ai">hello@kinori.ai</a></p>
         </div>
-      </div>
     </section>
 
     <section id="contact">
